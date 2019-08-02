@@ -25,7 +25,6 @@ public class PlayerCntroller : MonoBehaviour
 
     private void Update()
     {
-        //takes player phone accelerometer input and feed in the variable
         xAsix = Input.acceleration.x * Time.deltaTime * speed;
         zAsix = Input.acceleration.y * Time.deltaTime * speed;
 
@@ -47,8 +46,6 @@ public class PlayerCntroller : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //whenever the ball collide with the coin its destroy
-        //overhere you can add the score system
         if(other.gameObject.CompareTag("Coin"))
         {
             Destroy(other.gameObject);
