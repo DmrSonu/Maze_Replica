@@ -9,7 +9,6 @@ public class PlayerCntroller : MonoBehaviour
     public Transform feet;
     public float feetRadius;
     public LayerMask groundType;
-    private Rigidbody rb;
 
     bool isGrounded;
     float xAsix;
@@ -20,17 +19,18 @@ public class PlayerCntroller : MonoBehaviour
     void Start()
     {
         body = GetComponent<Rigidbody>();
-        rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
-        xAsix = Input.acceleration.x * Time.deltaTime * speed;
-        zAsix = Input.acceleration.y * Time.deltaTime * speed;
+        xAsix = Input.acceleration.x;
+        zAsix = Input.acceleration.y;
 
-        movement.Set(xAsix, 0, zAsix);
+        movement.Set(xAsix * Time.deltaTime * speed, body.velocity.y, zAsix * Time.deltaTime * speed);
 
-        transform.Translate(movement); 
+        //transform.Translate(movement);
+
+        body.velocity = movement;
     }
 
     private void FixedUpdate()
