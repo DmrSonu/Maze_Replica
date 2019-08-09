@@ -5,26 +5,30 @@ using UnityEngine;
 public class PlateformWheel : MonoBehaviour
 {
     [SerializeField] Vector3 rotatingAxis;
-    [SerializeField] int wheelSpeed;
-    [SerializeField] Transform[] wheelPoint;
-    [SerializeField] GameObject floatingPlatformPrefab;
+    [SerializeField] float wheelSpeed;
+    //erializeField] Transform[] wheelPoint;
+    //rializeField] GameObject floatingPlatformPrefab;
 
     GameObject[] rotatingPosition;
 
-    private void Start()
+    public void Start()
     {
-        for(int i = 0; i < wheelPoint.Length; i++)
-        {
-            Debug.Log("ahfa");
-            rotatingPosition[i] = Instantiate(floatingPlatformPrefab) as GameObject;
-            //rotatingPosition[i].transform.position = wheelPoint[i].position;
-            Debug.Log("ahfa");
-        }
-        /*
-        for (int i = 0; i < wheelPoint.Length; i++)
-        {
-            Instantiate(floatingPlatformPrefab).transform.position = wheelPoint[i].position;
-        }*/
+        //eelPlateformInstantiate();
+    }
+
+  //public void WheelPlateformInstantiate()
+  //{
+    //  for (int i = 0; i < wheelPoint.Length; i++)
+      //{
+        //  rotatingPosition = new GameObject[wheelPoint.Length];
+
+    //      rotatingPosition[i] = Instantiate(floatingPlatformPrefab, wheelPoint[i].position, Quaternion.identity) as GameObject;
+   //   }
+ // }
+
+    private void Update()
+    {
+        //tatingPosition[0].transform.position = Vector3.zero;
     }
 
     // Update is called once per frame
