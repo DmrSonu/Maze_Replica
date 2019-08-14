@@ -9,6 +9,9 @@ public class PlayerCntroller : MonoBehaviour
     public Transform feet;
     public float feetRadius;
     public LayerMask groundType;
+    public Vector3 boostForce;
+
+    public LayerMask boost;
 
     bool isGrounded;
     float xAsix;
@@ -31,6 +34,7 @@ public class PlayerCntroller : MonoBehaviour
         //transform.Translate(movement);
 
         body.velocity = movement;
+        //Debug.Log(body.velocity.magnitude);
     }
 
     private void FixedUpdate()
@@ -49,6 +53,12 @@ public class PlayerCntroller : MonoBehaviour
         if(other.gameObject.CompareTag("Coin"))
         {
             Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("Boost"))
+        {
+            Debug.Log("boost actived");
+            body.AddForce(boostForce);
         }
     }
 }

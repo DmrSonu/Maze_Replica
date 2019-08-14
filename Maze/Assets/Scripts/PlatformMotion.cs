@@ -18,7 +18,6 @@ public class PlatformMotion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float i;
         startPosition.y= Mathf.Lerp(startPosition.y, finalPositon.y, Mathf.Sin(Time.time * speed)) / 2;
         transform.position = startPosition;
     }
